@@ -8,7 +8,7 @@ build:
 
 run:
 	docker run --name $(INST) -d -p 80:80 \
-	-v $(HTML):html \
+	-v $(HTML):/html \
 	$(IMG)
 
 runAlways:
