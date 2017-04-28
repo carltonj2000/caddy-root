@@ -1,3 +1,6 @@
-localhost:80, http://*:80 {
-  gzip
+localhost:80, http://*:80, localhost:443, https://*:443 {
+  tls self_signed
+  proxy /power/api power:80 {
+    without /power
+  }
 }
