@@ -4,6 +4,7 @@ services:
     build: .
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /home/carltonj2000/cj/cjSourceControlled/carltonj2000/home-server/build:/html
     depends_on:
