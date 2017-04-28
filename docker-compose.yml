@@ -1,0 +1,17 @@
+version: '2'
+services:
+  caddy-root:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - /home/carltonj2000/cj/cjSourceControlled/carltonj2000/home-server/build:/html
+    depends_on:
+      - power
+    restart: always
+  power:
+    build: ../ubuntu-power
+    volumes:
+      - /home/carltonj2000/cj/configsNscripts/go:/home/carltonj2000/cj/configsNscripts/go
+      - /home/carltonj2000/cj/cjSourceControlled/carltonj2000/home-server/build/power:/root/html
+    restart: always
