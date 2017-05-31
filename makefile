@@ -1,5 +1,6 @@
 IMG = caddy-root
 INST = caddy-root1
+INSTCOMPOSE = caddyroot_caddy-root_1
 
 HTML = /home/carltonj2000/cj/cjSourceControlled/carltonj2000/home-server/build
 
@@ -22,6 +23,15 @@ update:
 
 clean:
 	docker rm -f $(shell docker ps -a | grep $(INST) | cut -b 1-12)
+
+cleanCompose:
+	docker rm -f $(shell docker ps -a | grep $(INSTCOMPOSE) | cut -b 1-12)
+
+rerunCompose: stopnrun1compose run
+
+stopnrun1compose: stopnrun2compose build
+
+stopnrun2compose: cleanCompose
 
 rerun: stopnrun1 run
 
